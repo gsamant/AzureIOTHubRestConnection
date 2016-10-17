@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D81E0271-4CF9-424B-92C3-ED59255DD4DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52A735B0-E14D-46DF-BCF0-AD29760D7E82}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebAPIAzureIOTHub", "src\WebAPIAzureIOTHub\WebAPIAzureIOTHub.xproj", "{20BB0496-98D6-421A-8870-124B30FECD20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20BB0496-98D6-421A-8870-124B30FECD20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BB0496-98D6-421A-8870-124B30FECD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BB0496-98D6-421A-8870-124B30FECD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BB0496-98D6-421A-8870-124B30FECD20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20BB0496-98D6-421A-8870-124B30FECD20} = {D81E0271-4CF9-424B-92C3-ED59255DD4DE}
+	EndGlobalSection
+EndGlobal
