@@ -88,22 +88,24 @@ namespace WebAPIAzureIOTHub.Controllers
         }
 
 
-        [HttpGet("{deviceId}")]
-        public DeviceData Get(String deviceId)
+        [HttpGet()]
+        public string Get(string deviceId, string deviceKey, string ttl)
         {
             TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
-            string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + 3600);
+            int timetolive = Convert.ToInt32(ttl) * 24 * 3600;
+            string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + timetolive);
 
-            string baseAddress = (IOTHubName +".azure-devices.net/devices/" + deviceId).ToLower();
+            string baseAddress = ("azuretest.azure-devices.net/devices/" + deviceId).ToLower();
             string stringToSign = WebUtility.UrlEncode(baseAddress).ToLower() + "\n" + expiry;
 
-            byte[] data = Convert.FromBase64String(IOTHubKey);
+            byte[] data = Convert.FromBase64String(WebUtility.UrlDecode(deviceKey));
             HMACSHA256 hmac = new HMACSHA256(data);
             string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
             string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}",
                             WebUtility.UrlEncode(baseAddress).ToLower(), WebUtility.UrlEncode(signature), expiry);
-            return new DeviceData { DeviceID = deviceId, Auth = WebUtility.UrlEncode(signature), Expires = expiry };
+            return WebUtility.UrlEncode(signature);
 
         }
+
     }
 }
