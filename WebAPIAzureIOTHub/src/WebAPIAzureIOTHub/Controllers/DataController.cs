@@ -91,11 +91,12 @@ namespace WebAPIAzureIOTHub.Controllers
         [HttpGet()]
         public string Get(string deviceId, string deviceKey, string ttl)
         {
-            TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970,1,1,0,0,0, DateTimeKind.Utc);
+            
             int timetolive = Convert.ToInt32(ttl) * 24 * 3600;
             string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + timetolive);
 
-            string baseAddress = ("azuretest.azure-devices.net/devices/" + deviceId).ToLower();
+            string baseAddress = IOTHubName + ".azure-devices.net/devices/" + deviceId;
             string stringToSign = WebUtility.UrlEncode(baseAddress).ToLower() + "\n" + expiry;
 
             byte[] data = Convert.FromBase64String(WebUtility.UrlDecode(deviceKey));
