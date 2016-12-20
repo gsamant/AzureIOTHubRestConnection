@@ -45,7 +45,6 @@ namespace WebAPIAzureIOTHub.Controllers
         
     }
 
-
     [DataContract]
     public class DataModel
     {
@@ -95,7 +94,7 @@ namespace WebAPIAzureIOTHub.Controllers
             int timetolive = Convert.ToInt32(ttl) * 24 * 3600;
             string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + timetolive);
 
-            string baseAddress = (IOTHubName + ".azure-devices.net/devices/" + deviceId).ToLower();
+            string baseAddress = IOTHubName + ".azure-devices.net/devices/" + deviceId;
             string stringToSign = WebUtility.UrlEncode(baseAddress).ToLower() + "\n" + expiry;
 
             byte[] data = Convert.FromBase64String(WebUtility.UrlDecode(deviceKey));
