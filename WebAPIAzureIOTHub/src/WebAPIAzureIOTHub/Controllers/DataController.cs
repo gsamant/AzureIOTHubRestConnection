@@ -45,7 +45,6 @@ namespace WebAPIAzureIOTHub.Controllers
         
     }
 
-
     [DataContract]
     public class DataModel
     {
