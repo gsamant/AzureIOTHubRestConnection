@@ -103,7 +103,7 @@ namespace WebAPIAzureIOTHub.Controllers
             string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
             string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}",
                             WebUtility.UrlEncode(baseAddress).ToLower(), WebUtility.UrlEncode(signature), expiry);
-            return WebUtility.UrlEncode(signature);
+            return token;
 
         }
 
