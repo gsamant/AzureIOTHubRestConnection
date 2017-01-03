@@ -96,7 +96,7 @@ namespace WebAPIAzureIOTHub.Controllers
             string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + timetolive);
 
             string baseAddress = IOTHubName + ".azure-devices.net/devices/" + deviceId;
-            string stringToSign = WebUtility.UrlEncode(baseAddress).ToLower() + "\n" + expiry;
+            string stringToSign = WebUtility.UrlEncode(baseAddress) + "\n" + expiry;
 
             byte[] data = Convert.FromBase64String(WebUtility.UrlDecode(deviceKey));
             HMACSHA256 hmac = new HMACSHA256(data);
