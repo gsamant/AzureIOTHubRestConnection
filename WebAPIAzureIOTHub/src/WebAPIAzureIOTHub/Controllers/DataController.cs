@@ -60,6 +60,7 @@ namespace WebAPIAzureIOTHub.Controllers
     {
         string IOTHubName = "myiothub";
         string IOTHubKey = "7IPsTfzLKePSrRNok4rK6NF92FXSPIH9aXTgZsETvyA=";
+        string storageconnection ="BlobEndpoint=https://gamtestrg.blob.core.windows.net/;QueueEndpoint=https://gamtestrg.queue.core.windows.net/;FileEndpoint=https://gamtestrg.file.core.windows.net/;TableEndpoint=https://gamtestrg.table.core.windows.net/;SharedAccessSignature=sv=2021-12-02&ss=bfqt&srt=s&sp=rwdlacupiyx&se=2023-04-12T16:52:28Z&st=2023-04-12T08:52:28Z&spr=https&sig=W5m%2FRpnAHxX3%2Bog7TVaW17Rd1QIdc%2FSvWnIxlos3Gl8%3D";
 
         // POST api/data
         [HttpPost]
