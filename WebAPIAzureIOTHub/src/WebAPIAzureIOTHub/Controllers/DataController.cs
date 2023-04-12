@@ -58,8 +58,8 @@ namespace WebAPIAzureIOTHub.Controllers
     [Route("api/[controller]")]
     public class DataController : Controller
     {
-        string IOTHubName = "Your IOT Hub Name";
-        string IOTHubKey = "Your IOT Hub Key";
+        string IOTHubName = "myiothub";
+        string IOTHubKey = "7IPsTfzLKePSrRNok4rK6NF92FXSPIH9aXTgZsETvyA=";
 
         // POST api/data
         [HttpPost]
